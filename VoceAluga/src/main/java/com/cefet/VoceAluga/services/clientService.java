@@ -3,6 +3,7 @@ import com.cefet.VoceAluga.models.client;
 import com.cefet.VoceAluga.repositories.clientRepository;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 
@@ -24,7 +25,11 @@ public class clientService {
     }
 
     public void delete(Integer id){
-        repository.deleteById(id);
+        try{
+            repository.deleteById(id);
+        } catch(EmptyResultDataAccessException e){
+            throw new ResourceNotFoundException(id);
+        }
     }
 
     public client update(Integer id, client client){

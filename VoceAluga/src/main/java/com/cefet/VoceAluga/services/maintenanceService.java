@@ -5,6 +5,7 @@ import com.cefet.VoceAluga.models.maintenance;
 import com.cefet.VoceAluga.repositories.maintenanceRepository;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 
@@ -26,7 +27,11 @@ public class maintenanceService {
     }
 
     public void delete(Integer id){
-        repository.deleteById(id);
+        try{
+            repository.deleteById(id);
+        } catch(EmptyResultDataAccessException e){
+            throw new ResourceNotFoundException(id);
+        }
     }
 
     public maintenance update(Integer id, maintenance maintenance){

@@ -7,3 +7,5 @@ INSERT INTO franchises(nome, telefone, endereco, email, horario) VALUES ('Rio 2'
 INSERT INTO vehicles(modelo, marca, ano, placa, cor, tipo, categoria, filial) VALUES ('Marea Turbo','Fiat', '2016','LOL6969','Bege','Sedan','A',1);
 
 INSERT INTO employees(nome, dt_nasc, cpf, endereco, telefone, horario, funcao, filial, senha) VALUES ('Sildenir Alves','13/08/1976',23489727614,'Rua do Flamengo 233',2197453232,'SEG-SEX 08:00-17:00',2,1, '123456');
+
+INSERT INTO rentals(idcliente, idatendimento, idveiculo, filial, dtinicio, duracao, pagamento, sitpagamento) VALUES (1,1,1,1,NOW(),10,'Credito', 'Pago');

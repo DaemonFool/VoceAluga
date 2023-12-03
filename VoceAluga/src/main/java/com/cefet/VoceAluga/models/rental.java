@@ -4,6 +4,7 @@ package com.cefet.VoceAluga.models;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 
 @Entity
@@ -25,7 +26,7 @@ public class rental implements Serializable {
     @ManyToOne
     @JoinColumn(name= "filial")
     private franchise filial;
-    private String dtinicio;
+    private Instant dtinicio;
     private Integer duracao;
     private String Pagamento;
     private String sitpagamento;
@@ -72,15 +73,9 @@ public class rental implements Serializable {
     public void setFilial(franchise filial) {
         this.filial = filial;
     }
-
-    public String getDtinicio() {
+    public Instant getDtinicio() {
         return dtinicio;
     }
-
-    public void setDtinicio(String dtinicio) {
-        this.dtinicio = dtinicio;
-    }
-
     public Integer getDuracao() {
         return duracao;
     }

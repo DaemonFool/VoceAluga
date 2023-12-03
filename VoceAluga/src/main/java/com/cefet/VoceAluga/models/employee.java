@@ -23,7 +23,7 @@ public class employee implements Serializable {
     private Long Telefone;
     private String horario;
     private String senha;
-    private funcao Funcao;
+    private Integer Funcao;
     @ManyToOne
     @JoinColumn(name= "filial")
     private franchise filial;
@@ -93,11 +93,11 @@ public class employee implements Serializable {
     }
 
     public funcao getFuncao() {
-        return Funcao;
+        return funcao.valueOf(Funcao);
     }
 
     public void setFuncao(funcao funcao) {
-        Funcao = funcao;
+        Funcao = funcao.getcode();
     }
 
     public franchise getFilial() {

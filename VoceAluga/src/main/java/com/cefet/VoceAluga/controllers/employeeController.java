@@ -1,10 +1,10 @@
 package com.cefet.VoceAluga.controllers;
 
+import com.cefet.VoceAluga.models.employee;
 import com.cefet.VoceAluga.services.employeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.cefet.VoceAluga.models.employee;
 
 import java.util.List;
 
@@ -25,6 +25,10 @@ public class employeeController {
         employee result = service.findByID(id);
         return ResponseEntity.ok().body(result);
     }
-
+    @PostMapping
+    public ResponseEntity<employee> insert(@RequestBody employee employee){
+        employee = service.insert(employee);
+        return ResponseEntity.ok().body(employee);
+    }
 
 }

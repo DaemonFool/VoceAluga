@@ -26,5 +26,11 @@ public class clientController {
         return ResponseEntity.ok().body(result);
     }
 
+    @PostMapping
+    public ResponseEntity<client> insert(@RequestBody client client){
+        client = service.insert(client);
+        return ResponseEntity.ok().body(client);
+    }
+
 
 }

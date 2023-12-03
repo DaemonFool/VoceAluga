@@ -1,10 +1,10 @@
 package com.cefet.VoceAluga.controllers;
 
+import com.cefet.VoceAluga.models.rental;
 import com.cefet.VoceAluga.services.rentalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.cefet.VoceAluga.models.rental;
 
 import java.util.List;
 
@@ -25,6 +25,10 @@ public class rentalController {
         rental result = service.findByID(id);
         return ResponseEntity.ok().body(result);
     }
-
+    @PostMapping
+    public ResponseEntity<rental> insert(@RequestBody rental rental){
+        rental = service.insert(rental);
+        return ResponseEntity.ok().body(rental);
+    }
 
 }

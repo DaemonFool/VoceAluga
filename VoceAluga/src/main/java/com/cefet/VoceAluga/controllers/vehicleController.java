@@ -1,5 +1,6 @@
 package com.cefet.VoceAluga.controllers;
 
+import com.cefet.VoceAluga.models.vehicle;
 import com.cefet.VoceAluga.services.vehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,10 @@ public class vehicleController {
         vehicle result = service.findByID(id);
         return ResponseEntity.ok().body(result);
     }
-
+    @PostMapping
+    public ResponseEntity<vehicle> insert(@RequestBody vehicle vehicle){
+        vehicle = service.insert(vehicle);
+        return ResponseEntity.ok().body(vehicle);
+    }
 
 }

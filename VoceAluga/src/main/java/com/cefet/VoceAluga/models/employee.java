@@ -1,5 +1,6 @@
 package com.cefet.VoceAluga.models;
 
+import com.cefet.VoceAluga.models.enums.funcao;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -22,8 +23,6 @@ public class employee implements Serializable {
     private Long Telefone;
     private String horario;
     private String senha;
-    @ManyToOne
-    @JoinColumn(name= "funcao")
     private funcao Funcao;
     @ManyToOne
     @JoinColumn(name= "filial")

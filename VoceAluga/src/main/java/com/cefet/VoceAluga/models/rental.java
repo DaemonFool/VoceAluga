@@ -1,11 +1,13 @@
 package com.cefet.VoceAluga.models;
 
 
+import com.cefet.VoceAluga.models.enums.pagamento;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
+import com.cefet.VoceAluga.models.enums.sitpagamento;
 
 @Entity
 @Table(name = "rentals")
@@ -28,8 +30,8 @@ public class rental implements Serializable {
     private franchise filial;
     private Instant dtinicio;
     private Integer duracao;
-    private String Pagamento;
-    private String sitpagamento;
+    private pagamento Pagamento;
+    private sitpagamento sitpagamento;
 
     public rental(){
     }
@@ -84,19 +86,19 @@ public class rental implements Serializable {
         this.duracao = duracao;
     }
 
-    public String getPagamento() {
+    public pagamento getPagamento() {
         return Pagamento;
     }
 
-    public void setPagamento(String pagamento) {
+    public void setPagamento(pagamento pagamento) {
         Pagamento = pagamento;
     }
 
-    public String getSitpagamento() {
+    public sitpagamento getSitpagamento() {
         return sitpagamento;
     }
 
-    public void setSitpagamento(String sitpagamento) {
+    public void setSitpagamento(sitpagamento sitpagamento) {
         this.sitpagamento = sitpagamento;
     }
 

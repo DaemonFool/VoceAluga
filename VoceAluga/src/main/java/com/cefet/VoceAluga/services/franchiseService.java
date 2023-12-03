@@ -4,8 +4,10 @@ import com.cefet.VoceAluga.models.franchise;
 import com.cefet.VoceAluga.models.franchise;
 import com.cefet.VoceAluga.models.franchise;
 import com.cefet.VoceAluga.repositories.franchiseRepository;
+import com.cefet.VoceAluga.services.exceptions.DatabaseException;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,8 @@ public class franchiseService {
             repository.deleteById(id);
         } catch(EmptyResultDataAccessException e){
             throw new ResourceNotFoundException(id);
+        } catch(DataIntegrityViolationException er){
+            throw new DatabaseException(er.getMessage());
         }
     }
 

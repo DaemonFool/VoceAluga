@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
-import com.cefet.VoceAluga.models.enums.sitpagamento;
 
 @Entity
 @Table(name = "rentals")
@@ -31,7 +30,7 @@ public class rental implements Serializable {
     private Instant dtinicio;
     private Integer duracao;
     private Integer Pagamento;
-    private Integer Sitpagamento;
+    private payment Pago;
 
     public rental(){
     }
@@ -94,12 +93,12 @@ public class rental implements Serializable {
         this.Pagamento = pagamento.getcode();
     }
 
-    public sitpagamento getSitpagamento() {
-        return sitpagamento.valueOf(Sitpagamento);
+    public payment getPago() {
+        return Pago;
     }
 
-    public void setSitpagamento(sitpagamento sitpagamento) {
-        this.Sitpagamento = sitpagamento.getcode();
+    public void setPago(payment pago) {
+        Pago = pago;
     }
 
     @Override
@@ -114,4 +113,6 @@ public class rental implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
 }

@@ -4,6 +4,7 @@ import com.cefet.VoceAluga.models.franchise;
 import com.cefet.VoceAluga.models.franchise;
 import com.cefet.VoceAluga.models.franchise;
 import com.cefet.VoceAluga.repositories.franchiseRepository;
+import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class franchiseService {
         return repository.findAll();
     }
     public franchise findByID(Integer id){
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     }
     public franchise insert(franchise franchise){
         return repository.save(franchise);

@@ -3,6 +3,7 @@ import com.cefet.VoceAluga.models.rental;
 import com.cefet.VoceAluga.models.rental;
 import com.cefet.VoceAluga.models.rental;
 import com.cefet.VoceAluga.repositories.rentalRepository;
+import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class rentalService {
         return repository.findAll();
     }
     public rental findByID(Integer id){
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     }
     public rental insert(rental rental){
         return repository.save(rental);

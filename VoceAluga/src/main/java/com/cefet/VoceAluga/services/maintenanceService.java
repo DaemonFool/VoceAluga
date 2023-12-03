@@ -3,6 +3,7 @@ import com.cefet.VoceAluga.models.maintenance;
 import com.cefet.VoceAluga.models.maintenance;
 import com.cefet.VoceAluga.models.maintenance;
 import com.cefet.VoceAluga.repositories.maintenanceRepository;
+import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class maintenanceService {
         return repository.findAll();
     }
     public maintenance findByID(Integer id){
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     }
     public maintenance insert(maintenance maintenance){
         return repository.save(maintenance);

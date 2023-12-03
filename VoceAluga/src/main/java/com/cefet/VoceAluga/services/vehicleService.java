@@ -3,6 +3,7 @@ import com.cefet.VoceAluga.models.vehicle;
 import com.cefet.VoceAluga.models.vehicle;
 import com.cefet.VoceAluga.models.vehicle;
 import com.cefet.VoceAluga.repositories.vehicleRepository;
+import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class vehicleService {
         return repository.findAll();
     }
     public vehicle findByID(Integer id){
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     }
     public vehicle insert(vehicle vehicle){
         return repository.save(vehicle);

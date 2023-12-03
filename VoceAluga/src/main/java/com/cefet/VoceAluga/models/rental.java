@@ -33,6 +33,31 @@ public class rental implements Serializable {
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private payment Pago;
 
+    public Double getTotal(){
+        double total =  0.0;
+        switch(idveiculo.getCategoria()){
+            case 'A':
+                total = 235.70;
+                break;
+
+            case 'B':
+                total = 189.70;
+                break;
+
+            case 'C':
+                total = 169.70;
+                break;
+
+            case 'D':
+                total = 159.00;
+                break;
+        }
+
+        total = total * getDuracao();
+
+        return total;
+    }
+
     public rental(){
     }
 

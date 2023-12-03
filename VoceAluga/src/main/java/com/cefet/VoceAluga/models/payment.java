@@ -1,5 +1,6 @@
 package com.cefet.VoceAluga.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ public class payment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Instant data;
+    @JsonIgnore
     @OneToOne
     @MapsId
     private rental order;

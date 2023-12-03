@@ -30,8 +30,8 @@ public class rental implements Serializable {
     private franchise filial;
     private Instant dtinicio;
     private Integer duracao;
-    private pagamento Pagamento;
-    private sitpagamento sitpagamento;
+    private Integer Pagamento;
+    private Integer Sitpagamento;
 
     public rental(){
     }
@@ -87,19 +87,19 @@ public class rental implements Serializable {
     }
 
     public pagamento getPagamento() {
-        return Pagamento;
+        return pagamento.valueOf(Pagamento);
     }
 
     public void setPagamento(pagamento pagamento) {
-        Pagamento = pagamento;
+        this.Pagamento = pagamento.getcode();
     }
 
     public sitpagamento getSitpagamento() {
-        return sitpagamento;
+        return sitpagamento.valueOf(Sitpagamento);
     }
 
     public void setSitpagamento(sitpagamento sitpagamento) {
-        this.sitpagamento = sitpagamento;
+        this.Sitpagamento = sitpagamento.getcode();
     }
 
     @Override

@@ -15,4 +15,17 @@ public enum funcao {
     private funcao(int code){
         this.code = code;
     }
+
+    public int getcode(){
+        return code;
+    }
+
+    public static funcao valueOf(int code){
+        for(funcao value : funcao.values()){
+            if(value.getcode() == code){
+                return value;
+            }
+        }
+        throw new IllegalArgumentException("Código inválido!");
+    }
 }

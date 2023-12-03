@@ -30,6 +30,7 @@ public class rental implements Serializable {
     private Instant dtinicio;
     private Integer duracao;
     private Integer Pagamento;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private payment Pago;
 
     public rental(){

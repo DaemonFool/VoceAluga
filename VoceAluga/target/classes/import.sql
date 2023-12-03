@@ -6,4 +6,6 @@ INSERT INTO vehicles(modelo, marca, ano, placa, cor, tipo, categoria, filial) VA
 
 INSERT INTO employees(nome, dt_nasc, cpf, endereco, telefone, horario, funcao, filial, senha) VALUES ('Sildenir Alves','13/08/1976',23489727614,'Rua do Flamengo 233',2197453232,'SEG-SEX 08:00-17:00',2,1, '123456');
 
-INSERT INTO rentals(idcliente, idatendimento, idveiculo, filial, dtinicio, duracao, pagamento, sitpagamento) VALUES (1,1,1,1,NOW(),10, 1, 1);
+INSERT INTO rentals(idcliente, idatendimento, idveiculo, filial, dtinicio, duracao, pagamento) VALUES (1,1,1,1,NOW(),10, 1);
+
+INSERT INTO payments(data, order_id, paid) VALUES (NOW(),1,1)

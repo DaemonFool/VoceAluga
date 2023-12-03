@@ -5,7 +5,9 @@ import com.cefet.VoceAluga.services.maintenanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 
@@ -28,7 +30,8 @@ public class maintenanceController {
     @PostMapping
     public ResponseEntity<maintenance> insert(@RequestBody maintenance maintenance){
         maintenance = service.insert(maintenance);
-        return ResponseEntity.ok().body(maintenance);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(maintenance.getId()).toUri();
+        return ResponseEntity.created(uri).body(maintenance);
     }
 
 }

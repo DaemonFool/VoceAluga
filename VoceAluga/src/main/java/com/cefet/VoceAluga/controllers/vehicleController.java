@@ -5,8 +5,9 @@ import com.cefet.VoceAluga.services.vehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.cefet.VoceAluga.models.vehicle;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 
@@ -29,7 +30,8 @@ public class vehicleController {
     @PostMapping
     public ResponseEntity<vehicle> insert(@RequestBody vehicle vehicle){
         vehicle = service.insert(vehicle);
-        return ResponseEntity.ok().body(vehicle);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(vehicle.getId()).toUri();
+        return ResponseEntity.created(uri).body(vehicle);
     }
 
 }

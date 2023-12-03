@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.cefet.VoceAluga.models.client;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 
@@ -29,7 +31,8 @@ public class clientController {
     @PostMapping
     public ResponseEntity<client> insert(@RequestBody client client){
         client = service.insert(client);
-        return ResponseEntity.ok().body(client);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(client.getId()).toUri();
+        return ResponseEntity.created(uri).body(client);
     }
 
 

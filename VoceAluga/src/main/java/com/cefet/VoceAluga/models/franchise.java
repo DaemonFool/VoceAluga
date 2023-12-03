@@ -1,5 +1,6 @@
 package com.cefet.VoceAluga.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -19,10 +20,13 @@ public class franchise implements Serializable {
     private Long Telefone;
     private String email;
     private String horario;
+    @JsonIgnore
     @OneToMany(mappedBy = "filial")
     private List<rental> rentals = new ArrayList<>();
+    @JsonIgnore
     @OneToMany(mappedBy = "filial")
     private List<employee> employees = new ArrayList<>();
+    @JsonIgnore
     @OneToMany(mappedBy = "filial")
     private List<vehicle> vehicles = new ArrayList<>();
 

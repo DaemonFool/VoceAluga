@@ -1,5 +1,6 @@
 package com.cefet.VoceAluga.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public class client implements Serializable {
     private Long CPF;
     private String Endereco;
     private Long Telefone;
+    @JsonIgnore
     @OneToMany(mappedBy = "idcliente")
     private List<rental> rentals = new ArrayList<>();
 

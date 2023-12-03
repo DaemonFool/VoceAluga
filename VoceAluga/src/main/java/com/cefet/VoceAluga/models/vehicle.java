@@ -1,5 +1,6 @@
 package com.cefet.VoceAluga.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -24,8 +25,10 @@ public class vehicle implements Serializable {
     @ManyToOne
     @JoinColumn(name= "filial")
     private franchise filial;
+    @JsonIgnore
     @OneToMany(mappedBy = "idveiculo")
     private List<rental> rentals = new ArrayList<>();
+    @JsonIgnore
     @OneToMany(mappedBy = "idveiculo")
     private List<maintenance> maintenances = new ArrayList<>();
 

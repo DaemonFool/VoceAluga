@@ -1,6 +1,7 @@
 package com.cefet.VoceAluga.controllers;
 
 import com.cefet.VoceAluga.models.franchise;
+import com.cefet.VoceAluga.models.franchise;
 import com.cefet.VoceAluga.services.franchiseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,4 +35,14 @@ public class franchiseController {
         return ResponseEntity.created(uri).body(franchise);
     }
 
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<franchise> update(@PathVariable Integer id, @RequestBody franchise franchise){
+        franchise = service.update(id, franchise);
+        return ResponseEntity.ok().body(franchise);
+    }
 }

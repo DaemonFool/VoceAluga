@@ -1,6 +1,7 @@
 package com.cefet.VoceAluga.controllers;
 
 import com.cefet.VoceAluga.models.employee;
+import com.cefet.VoceAluga.models.employee;
 import com.cefet.VoceAluga.services.employeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,4 +35,14 @@ public class employeeController {
         return ResponseEntity.created(uri).body(employee);
     }
 
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }    
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<employee> update(@PathVariable Integer id, @RequestBody employee employee){
+        employee = service.update(id, employee);
+        return ResponseEntity.ok().body(employee);
+    }
 }

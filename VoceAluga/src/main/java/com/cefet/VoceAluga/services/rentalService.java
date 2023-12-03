@@ -1,5 +1,7 @@
 package com.cefet.VoceAluga.services;
 import com.cefet.VoceAluga.models.rental;
+import com.cefet.VoceAluga.models.rental;
+import com.cefet.VoceAluga.models.rental;
 import com.cefet.VoceAluga.repositories.rentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +22,20 @@ public class rentalService {
     }
     public rental insert(rental rental){
         return repository.save(rental);
+    }
+
+    public void delete(Integer id){
+        repository.deleteById(id);
+    }
+
+    public rental update(Integer id, rental rental){
+        rental entity = repository.getReferenceById(id);
+        updateData(entity, rental);
+        return repository.save(entity);
+    }
+
+    private void updateData(rental entity, rental rental) {
+        entity.setDuracao(rental.getDuracao());
+        entity.setPagamento(rental.getPagamento());
     }
 }

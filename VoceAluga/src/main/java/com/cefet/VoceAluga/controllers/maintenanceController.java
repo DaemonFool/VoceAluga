@@ -1,6 +1,7 @@
 package com.cefet.VoceAluga.controllers;
 
 import com.cefet.VoceAluga.models.maintenance;
+import com.cefet.VoceAluga.models.maintenance;
 import com.cefet.VoceAluga.services.maintenanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,5 +34,14 @@ public class maintenanceController {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(maintenance.getId()).toUri();
         return ResponseEntity.created(uri).body(maintenance);
     }
-
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<maintenance> update(@PathVariable Integer id, @RequestBody maintenance maintenance){
+        maintenance = service.update(id, maintenance);
+        return ResponseEntity.ok().body(maintenance);
+    }
 }

@@ -1,6 +1,7 @@
 package com.cefet.VoceAluga.controllers;
 
 import com.cefet.VoceAluga.models.rental;
+import com.cefet.VoceAluga.models.rental;
 import com.cefet.VoceAluga.services.rentalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,5 +34,15 @@ public class rentalController {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(rental.getId()).toUri();
         return ResponseEntity.created(uri).body(rental);
     }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<rental> update(@PathVariable Integer id, @RequestBody rental rental){
+        rental = service.update(id, rental);
+        return ResponseEntity.ok().body(rental);
+    }
 }

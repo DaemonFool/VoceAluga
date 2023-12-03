@@ -31,6 +31,7 @@ public class vehicle implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "idveiculo")
     private List<maintenance> maintenances = new ArrayList<>();
+    private Boolean disponivel;
 
     public vehicle(){
     }
@@ -115,6 +116,14 @@ public class vehicle implements Serializable {
         return maintenances;
     }
 
+    public Boolean getDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -127,4 +136,6 @@ public class vehicle implements Serializable {
     public int hashCode() {
         return Objects.hash(id, placa);
     }
+
+
 }

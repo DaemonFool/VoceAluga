@@ -21,4 +21,23 @@ public class employeeService {
     public employee insert(employee employee){
         return repository.save(employee);
     }
+
+    public void delete(Integer id){
+        repository.deleteById(id);
+    }
+    public employee update(Integer id, employee employee){
+        employee entity = repository.getReferenceById(id);
+        updateData(entity, employee);
+        return repository.save(entity);
+    }
+    private void updateData(employee entity, employee employee) {
+        entity.setCPF(employee.getCPF());
+        entity.setEndereco(employee.getEndereco());
+        entity.setFilial(employee.getFilial());
+        entity.setFuncao(employee.getFuncao());
+        entity.setDt_nasc(employee.getDt_nasc());
+        entity.setHorario(employee.getHorario());
+        entity.setNome(employee.getNome());
+        entity.setTelefone(employee.getTelefone());
+    }
 }

@@ -21,4 +21,22 @@ public class clientService {
     public client insert(client client){
         return repository.save(client);
     }
+
+    public void delete(Integer id){
+        repository.deleteById(id);
+    }
+
+    public client update(Integer id, client client){
+        client entity = repository.getReferenceById(id);
+        updateData(entity, client);
+        return repository.save(entity);
+    }
+
+    private void updateData(client entity, client client) {
+        entity.setCPF(client.getCPF());
+        entity.setEndereco(client.getEndereco());
+        entity.setNome(client.getNome());
+        entity.setTelefone(client.getTelefone());
+        entity.setDt_nasc(client.getDt_nasc());
+    }
 }

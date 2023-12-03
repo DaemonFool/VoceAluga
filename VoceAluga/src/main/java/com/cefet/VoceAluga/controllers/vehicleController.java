@@ -1,6 +1,7 @@
 package com.cefet.VoceAluga.controllers;
 
 import com.cefet.VoceAluga.models.vehicle;
+import com.cefet.VoceAluga.models.vehicle;
 import com.cefet.VoceAluga.services.vehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,5 +34,14 @@ public class vehicleController {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(vehicle.getId()).toUri();
         return ResponseEntity.created(uri).body(vehicle);
     }
-
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<vehicle> update(@PathVariable Integer id, @RequestBody vehicle vehicle){
+        vehicle = service.update(id, vehicle);
+        return ResponseEntity.ok().body(vehicle);
+    }
 }

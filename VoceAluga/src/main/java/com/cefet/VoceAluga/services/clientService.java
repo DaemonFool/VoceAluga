@@ -1,6 +1,7 @@
 package com.cefet.VoceAluga.services;
 import com.cefet.VoceAluga.models.client;
 import com.cefet.VoceAluga.repositories.clientRepository;
+import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class clientService {
         return repository.findAll();
     }
     public client findByID(Integer id){
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     }
     public client insert(client client){
         return repository.save(client);

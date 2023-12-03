@@ -5,6 +5,7 @@ import com.cefet.VoceAluga.models.maintenance;
 import com.cefet.VoceAluga.repositories.maintenanceRepository;
 import com.cefet.VoceAluga.services.exceptions.DatabaseException;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -39,9 +40,13 @@ public class maintenanceService {
     }
 
     public maintenance update(Integer id, maintenance maintenance){
-        maintenance entity = repository.getReferenceById(id);
-        updateData(entity, maintenance);
-        return repository.save(entity);
+       try {
+            maintenance entity = repository.getReferenceById(id);
+            updateData(entity, maintenance);
+            return repository.save(entity);
+       } catch (EntityNotFoundException e){
+        throw new ResourceNotFoundException(id);
+    }
     }
 
     private void updateData(maintenance entity, maintenance maintenance) {

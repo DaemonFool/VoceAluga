@@ -5,6 +5,7 @@ import com.cefet.VoceAluga.models.rental;
 import com.cefet.VoceAluga.repositories.rentalRepository;
 import com.cefet.VoceAluga.services.exceptions.DatabaseException;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -39,9 +40,13 @@ public class rentalService {
     }
 
     public rental update(Integer id, rental rental){
-        rental entity = repository.getReferenceById(id);
-        updateData(entity, rental);
-        return repository.save(entity);
+        try{
+            rental entity = repository.getReferenceById(id);
+            updateData(entity, rental);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException(id);
+        }
     }
 
     private void updateData(rental entity, rental rental) {

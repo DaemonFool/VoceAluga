@@ -6,6 +6,7 @@ import com.cefet.VoceAluga.models.franchise;
 import com.cefet.VoceAluga.repositories.franchiseRepository;
 import com.cefet.VoceAluga.services.exceptions.DatabaseException;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -40,9 +41,13 @@ public class franchiseService {
     }
 
     public franchise update(Integer id, franchise franchise){
-        franchise entity = repository.getReferenceById(id);
-        updateData(entity, franchise);
-        return repository.save(entity);
+       try{
+            franchise entity = repository.getReferenceById(id);
+            updateData(entity, franchise);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException(id);
+        }
     }
 
     private void updateData(franchise entity, franchise franchise) {

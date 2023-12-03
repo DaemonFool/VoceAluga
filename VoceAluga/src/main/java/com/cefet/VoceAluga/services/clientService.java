@@ -3,6 +3,7 @@ import com.cefet.VoceAluga.models.client;
 import com.cefet.VoceAluga.repositories.clientRepository;
 import com.cefet.VoceAluga.services.exceptions.DatabaseException;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -37,9 +38,14 @@ public class clientService {
     }
 
     public client update(Integer id, client client){
-        client entity = repository.getReferenceById(id);
-        updateData(entity, client);
-        return repository.save(entity);
+        try{
+            client entity = repository.getReferenceById(id);
+            updateData(entity, client);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException(id);
+        }
+
     }
 
     private void updateData(client entity, client client) {

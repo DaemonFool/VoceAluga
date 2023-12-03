@@ -5,6 +5,7 @@ import com.cefet.VoceAluga.models.vehicle;
 import com.cefet.VoceAluga.repositories.vehicleRepository;
 import com.cefet.VoceAluga.services.exceptions.DatabaseException;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -39,9 +40,13 @@ public class vehicleService {
     }
 
     public vehicle update(Integer id, vehicle vehicle){
-        vehicle entity = repository.getReferenceById(id);
-        updateData(entity, vehicle);
-        return repository.save(entity);
+       try {
+            vehicle entity = repository.getReferenceById(id);
+            updateData(entity, vehicle);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException(id);
+        }
     }
 
     private void updateData(vehicle entity, vehicle vehicle) {

@@ -3,6 +3,7 @@ import com.cefet.VoceAluga.models.employee;
 import com.cefet.VoceAluga.repositories.employeeRepository;
 import com.cefet.VoceAluga.services.exceptions.DatabaseException;
 import com.cefet.VoceAluga.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -36,9 +37,13 @@ public class employeeService {
         }
     }
     public employee update(Integer id, employee employee){
-        employee entity = repository.getReferenceById(id);
-        updateData(entity, employee);
-        return repository.save(entity);
+        try{
+            employee entity = repository.getReferenceById(id);
+            updateData(entity, employee);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException(id);
+        }
     }
     private void updateData(employee entity, employee employee) {
         entity.setCPF(employee.getCPF());

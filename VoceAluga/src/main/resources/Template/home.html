@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Você Aluga</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap">
+    <link rel="stylesheet" href="../static/css/styleHome.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+</head>
+
+<body>
+
+    <header>
+        <h1>Você Aluga System</h1>
+        <br>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="login.html">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+      <div class="icon-container">
+        <div class="card">
+          <a href="Locacao.html" class="icon-link">
+            <img src="../static/img/ZiconeCarro.png" class="card-img-top" alt="Realizar Locação" >
+            <div class="card-body">
+              <h5 class="card-title">Realizar Locação</h5>
+            </div>
+          </a>
+        </div>
+  
+        <div class="card">
+          <a href="Manutencao.html" class="icon-link">
+            <img src="../static/img/ZiconeManutencao.png" class="card-img-top" alt="Manutenção">
+            <div class="card-body">
+              <h5 class="card-title">Manutenção</h5>
+            </div>
+          </a>
+        </div>
+  
+        <div class="card">
+          <a href="CadastroCliente.html" class="icon-link">
+            <img src="../static/img/Ziconecliente.png" class="card-img-top" alt="Cadastrar Cliente">
+            <div class="card-body">
+              <h5 class="card-title">Cadastrar Cliente</h5>
+            </div>
+          </a>
+        </div>
+
+        <div class="card" >
+            <a href="CadastroFuncionario.html" class="icon-link">
+              <img src="../static/img/ZiconeFuncionario.png" class="card-img-top" alt="Cadastrar Funcionario">
+              <div class="card-body">
+                <h5 class="card-title">Cadastrar Funcionário</h5>
+              </div>
+            </a>
+          </div>
+
+
+      </div>
+    </div>
+  
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script>
+      // Função para obter parâmetros da URL
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+    
+      // Verifique se há o parâmetro "message" na URL
+      var message = getParameterByName('message');
+      if (message) {
+        alert(message);
+      }
+    </script>
+
+  </body>
+  </html>

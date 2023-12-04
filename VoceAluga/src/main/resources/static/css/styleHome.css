@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2; 
     color: #000; 
-    background-image: url(carros.jpg);
+    background-image: url('../img/carros.jpg');
     background-size: cover;
 }
 

@@ -17,9 +17,9 @@ public class client implements Serializable {
     private Integer id;
     private String Nome;
     private String Dt_nasc;
-    private Long CPF;
+    private String CPF;
     private String Endereco;
-    private Long Telefone;
+    private String Telefone;
     @JsonIgnore
     @OneToMany(mappedBy = "idcliente")
     private List<rental> rentals = new ArrayList<>();
@@ -51,11 +51,11 @@ public class client implements Serializable {
         Dt_nasc = dt_nasc;
     }
 
-    public Long getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(Long CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
@@ -67,11 +67,11 @@ public class client implements Serializable {
         Endereco = endereco;
     }
 
-    public Long getTelefone() {
+    public String getTelefone() {
         return Telefone;
     }
 
-    public void setTelefone(Long telefone) {
+    public void setTelefone(String telefone) {
         Telefone = telefone;
     }
 

@@ -28,7 +28,7 @@ public class clientController {
         return ResponseEntity.ok().body(result);
     }
 
-    @PostMapping
+    @PostMapping(consumes = {"application/json"})
     public ResponseEntity<client> insert(@RequestBody client client){
         client = service.insert(client);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(client.getId()).toUri();

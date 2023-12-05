@@ -18,9 +18,9 @@ public class employee implements Serializable {
     private Integer id;
     private String Nome;
     private String Dt_nasc;
-    private Long CPF;
+    private String CPF;
     private String Endereco;
-    private Long Telefone;
+    private String Telefone;
     private String horario;
     private String senha;
     private Integer Funcao;
@@ -60,11 +60,11 @@ public class employee implements Serializable {
         Dt_nasc = dt_nasc;
     }
 
-    public Long getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(Long CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
@@ -76,11 +76,11 @@ public class employee implements Serializable {
         Endereco = endereco;
     }
 
-    public Long getTelefone() {
+    public String getTelefone() {
         return Telefone;
     }
 
-    public void setTelefone(Long telefone) {
+    public void setTelefone(String telefone) {
         Telefone = telefone;
     }
 

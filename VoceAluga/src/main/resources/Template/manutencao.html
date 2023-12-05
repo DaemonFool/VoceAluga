@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,33 +9,66 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap">
     <title>Manutenção</title>
 </head>
+
 <body>
+    <div class="gradient-background">
+        <div class="container">
+            <header>
+                <h1>Você Aluga System</h1>
+                <br>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="Login.html">Sair</a></li>
+                    </ul>
+                </nav>
+            </header>
 
-    <header>
-        <h1>Você Aluga System</h1>
-        <br>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="login.html">Sair</a></li>
-            </ul>
-        </nav>
-    </header>
-    
 
-    <div class="card">
-        <h1 class="text-center mb-4">Veículos disponíveis para manutenção:</h1>
-        <form id="meuFormulario">
-            <div class="form-group">
-                <label for="veiculos">Veículos disponíveis para manutenção:</label>
-                <select class="form-control" id="veiculos" name="veiculos">
-                </select>
+            <div class="card">
+                <h1 class="text-center mb-4">Manutenção de Veículos</h1>
+                <form id="meuFormulario">
+                    <div class="form-group">
+                        <label for="veiculos">Selecione um veículo para manutenção:</label>
+                        <select class="form-control" id="veiculos" name="veiculos">
+                            <option value="carro">Ford Focus Ghia Sedan 2001 </option>
+                        </select>
+                        <br>
+                        <div class="form-group">
+                            <label for="dataAgendamento">Data do agendamento:</label>
+                            <input type="date" class="form-control" id="dataAgendamento" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="horario">Horário do agendamento:</label>
+                            <input type="time" class="form-control" id="horarioAgendamento" placeholder="Digite o horario"
+                                required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="funcao">Mecânico responsável:</label>
+                            <select class="form-control" id="mecanico" required>
+                                <option value="1">Lucas</option>
+                                <option value="2">GERENTE</option>
+                                <option value="3">VENDEDOR</option>
+                                <option value="4">MECÂNICO</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-danger btn-block">Agendar</button>
+
             </div>
-            </div>
-        </form>
+
+
+            </form>
+        </div>
+
     </div>
-    
+
 
 
 </body>
+
 </html>

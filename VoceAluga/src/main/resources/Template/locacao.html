@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styleManutencao.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap">
+    <title>Manutenção</title>
+</head>
+
+<body>
+    <div class="gradient-background">
+        <div class="container">
+            <header>
+                
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="Login.html">Sair</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+
+            <div class="card">
+                <h1 class="text-center mb-4">Locação de Veículos</h1>
+                <form id="meuFormulario">
+                    <div class="form-group">
+                        <label for="veiculos">Selecione um tipo de veículo :</label>
+                        <select class="form-control" id="tipo" name="tipo">
+                            <option value="carro">Sedan</option>
+                        </select>
+                        <br>
+                        <label for="veiculos">Selecione o modelo desejado :</label>
+                        <select class="form-control" id="modelo" name="modelo">
+                            <option value="carro">Honda Civic LXS 2012</option>
+                        </select>
+                        <br>
+                        <div class="form-group">
+                            <label for="dataNascimento">Data da locação:</label>
+                            <input type="date" class="form-control" id="dataLocacao" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="horario">Horário para buscar o carro:</label>
+                            <input type="time" class="form-control" id="horario" placeholder="Digite o horario"
+                                required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="cpf">CNH do locador:</label>
+                            <input type="search" class="form-control" id="cnh" placeholder="Digite a CNH" required>
+                        </div>
+                        <div class="container mt-5">
+                            <a href="https://www.paypal.com" target="_blank" class="btn btn-primary btn-lg">Ir para o pagamento pelo PayPal</a>
+                          </div>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-outline-danger">Agendar</button>
+
+            </div>
+
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

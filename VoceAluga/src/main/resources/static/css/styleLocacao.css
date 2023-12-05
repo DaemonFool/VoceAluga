@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+.gradient-background {
+    background: linear-gradient(to bottom, #353b48, #2f3640, #312f2f); /* Degrade de azul e roxo escuro para preto */
+    min-height: 100vh; /* Para cobrir toda a altura da tela */
+}
+
+.content {
+    padding-top: 20px; /* Ajuste o espaçamento superior conforme necessário */
+    /* Seu estilo para o conteúdo aqui */
+}
+
+header {
+    padding-top: 20px;
+    color: #fff; 
+    text-align: center;
+   
+}
+
+header h1 {
+    margin: 0;
+    font-size: 40px;
+    
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h1{
+    text-align: center;
+}
+
+.card {
+    top: 50px;
+    margin: 0 auto;
+    text-align: center;
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+}

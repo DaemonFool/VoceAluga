@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styleManutencao.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap">
+    <title>Manutenção</title>
+</head>
+
+<body>
+    <div class="gradient-background">
+        <div class="container">
+            <header>
+
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="Login.html">Sair</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+
+            <div class="card">
+                <h1 class="text-center mb-4">Cadastrar Carro</h1>
+                <form id="meuFormulario">
+                    <div class="form-group">
+                        <label for="veiculos">Selecione o tipo do carro :</label>
+                        <select class="form-control" id="tipo" name="tipo">
+                            <option value="carro">SUV</option>
+                        </select>
+                        <br>
+                        
+                        <label for="veiculos">Cor do carro :</label>
+                        <select class="form-control" id="cor" name="cor">
+                            <option value="carro">Prata</option>
+                        </select>
+                        <br>
+                        <div class="form-group">
+                            <label for="dataNascimento">Modelo do carro:</label>
+                            <input type="text" class="form-control" id="modelo"  required>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="cpf">Ano do carro:</label>
+                            <input type="text" class="form-control" id="ano" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="cpf">Placa do carro:</label>
+                            <input type="text" class="form-control" id="placa" required>
+                        </div>
+                        <br>
+
+                        <br>
+                        <button type="button" class="btn-block btn-danger">Cadastrar</button>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
+
+
+
+</body>
+
+</html>
